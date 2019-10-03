@@ -20,7 +20,8 @@ const dataValue = {
   duration: getrandomInteger(49, 140),
   genre: [`Crime`, `Fantasy`, `Historical`, `Horror`, `Mystery`],
   rating: getrandomInteger(1, 9),
-  comments: getrandomInteger(1, 40)
+  comments: getrandomInteger(1, 40),
+  comment1: getrandomInteger(1, 40)
 };
 const generaTeFilmData = (data) => {
   return {
