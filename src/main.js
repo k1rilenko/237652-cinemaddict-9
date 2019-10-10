@@ -48,6 +48,12 @@ const renderFilm = (mockFilm) => {
     utils.unrender(popup.getElement());
     document.removeEventListener(`click`, onEscKeyDown);
   });
+  popup.getElement().querySelector(`.film-details__comment-input`).addEventListener(`focus`, () => {
+    document.removeEventListener(`keydown`, onEscKeyDown);
+  });
+  popup.getElement().querySelector(`.film-details__comment-input`).addEventListener(`blur`, () => {
+    document.addEventListener(`keydown`, onEscKeyDown);
+  });
 };
 const filmContainer = document.querySelector(`.films-list__container`);
 const showMoreButton = document.querySelector(`.films-list__show-more`);
