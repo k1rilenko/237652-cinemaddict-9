@@ -1,7 +1,8 @@
-import {utils} from '../components/utils.js';
+import {AbstractComponent} from './abstractComponent.js';
 
-export class Popup {
+export class Popup extends AbstractComponent {
   constructor({name, rating, year, duration, genre, image, fullDescription}) {
+    super();
     this._name = name;
     this._rating = rating;
     this._year = year;
@@ -10,7 +11,6 @@ export class Popup {
     this._image = image;
     this._fullDescription = fullDescription;
     this._rating = rating;
-    this._element = null;
   }
   getTemplate() {
     return `<section class="film-details">
@@ -230,16 +230,4 @@ export class Popup {
       </form>
     </section>`;
   }
-  getElement() {
-    if (!this._element) {
-      this._element = utils.createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-  removeElement() {
-    if (this._element) {
-      this._element = null;
-    }
-  }
-
 }

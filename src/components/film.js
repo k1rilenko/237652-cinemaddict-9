@@ -1,6 +1,8 @@
-import {utils} from '../components/utils.js';
-export class Film {
+import {AbstractComponent} from './abstractComponent.js';
+
+export class Film extends AbstractComponent {
   constructor({name, rating, year, duration, genre, image, description, comments}) {
+    super();
     this._name = name;
     this._rating = rating;
     this._year = year;
@@ -9,16 +11,6 @@ export class Film {
     this._image = image;
     this._description = description;
     this._comments = comments;
-    this._element = null;
-  }
-  getElement() {
-    if (!this._element) {
-      this._element = utils.createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-  removeElement() {
-    this._element = null;
   }
   getTemplate() {
     return `<article class="film-card">
