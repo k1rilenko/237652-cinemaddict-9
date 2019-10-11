@@ -12,7 +12,7 @@ const getRandomDescription = (count) => {
   return description.toString();
 };
 
-const dataValue = {
+const data = {
   name: new Set([`Побег из Шоушенка`, `Крёстный отец`, `Крёстный отец 2`, `Тёмный рыцарь`, `12 разгневанных мужчин`, `Список Шиндлера`, `Криминальное чтиво`, `	Властелин колец: Возвращение короля`, `	Хороший, плохой, злой`, `Бойцовский клуб`, `Властелин колец: Братство Кольца`, `Форрест Гамп`, `Звёздные войны. Эпизод V: Империя наносит ответный удар`, `Начало`, `Властелин колец: Две крепости`]),
   image: new Set([`made-for-each-other.png`, `popeye-meets-sinbad.png`, `sagebrush-trail.jpg`, `santa-claus-conquers-the-martians.jpg`, `the-dance-of-life.jpg`, `the-great-flamarion.jpg`, `the-man-with-the-golden-arm.jpg`]),
   description: getRandomDescription(getrandomInteger(1, 3)),
@@ -22,16 +22,18 @@ const dataValue = {
   rating: getrandomInteger(1, 9),
   comments: getrandomInteger(1, 40)
 };
-const generaTeFilmData = (data) => {
+const generateFilmData = () => {
   return {
-    name: Array.from(data.name)[Math.floor(Math.random() * 10)],
+    name: Array.from(data.name)[Math.floor(Math.random() * 10)].trim(` `),
     image: Array.from(data.image)[Math.floor(Math.random() * 6)],
-    description: getRandomDescription(getrandomInteger(1, 3)),
+    description: getRandomDescription(getrandomInteger(1, 3)).substring(0, 140),
+    fullDescription: getRandomDescription(getrandomInteger(1, 3)),
     year: getrandomInteger(1920, 2019),
     duration: getrandomInteger(49, 140),
     genre: data.genre[Math.floor(Math.random() * 5)],
     rating: getrandomInteger(1, 9),
-    comments: getrandomInteger(1, 40)
+    comments: getrandomInteger(1, 40),
   };
 };
-export {getrandomInteger, dataValue, generaTeFilmData};
+const mockData = new Array(21).fill(``).map(generateFilmData);
+export {getrandomInteger, mockData};
