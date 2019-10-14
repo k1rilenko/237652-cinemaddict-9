@@ -36,5 +36,5 @@ const generateFilmData = () => {
     comments: getrandomInteger(1, 40),
   };
 };
-const mockData = new Array(21).fill(``).map(generateFilmData);
+const mockData = new Array(10).fill(``).map(generateFilmData);
 export {getrandomInteger, mockData};

@@ -1,10 +1,6 @@
 import {menu} from './components/menu.js';
 import {search} from './components/search.js';
 import {user} from './components/user.js';
-import {categoryRated} from './components/categoryContainer.js';
-import {categoryComment} from './components/categoryContainerComment.js';
-import {Film} from './components/film.js';
-import {Popup} from './components/popup.js';
 import {button} from './components/button.js';
 import {getrandomInteger, mockData} from './components/data.js';
 import {PageController} from './components/pageController.js';
